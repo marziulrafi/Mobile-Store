@@ -17,7 +17,7 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
         hydrateFallbackElement:<p>Please Wait ...</p>,
-        loader: ()=>fetch('mobiles.json')
+        loader: ()=>fetch('../mobiles.json')
       },
       {
         path: '/favourites',
@@ -28,11 +28,13 @@ const router = createBrowserRouter([
         element: <About />
       },
       {
-        path: '/mobile-details',
-        element: <MobileDetails />
-      }
-    ]
-  }
+        path: '/mobile-details/:id',
+        element: <MobileDetails />,
+        hydrateFallbackElement:<p>Please Wait ...</p>,
+        loader: ()=>fetch('../mobiles.json')
+      },
+    ],
+  },
 ])
 
 export default router
